@@ -26,7 +26,7 @@
             // Shortcuts
             var words = wordArray.words;
             var sigBytes = wordArray.sigBytes;
-            var map = this._map;
+            var map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='; 
 
             // Clamp excess bits
             wordArray.clamp();
@@ -72,7 +72,7 @@
         parse: function (base64Str) {
             // Shortcuts
             var base64StrLength = base64Str.length;
-            var map = this._map;
+            var map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
             var reverseMap = this._reverseMap;
 
             if (!reverseMap) {
@@ -95,8 +95,6 @@
             return parseLoop(base64Str, base64StrLength, reverseMap);
 
         },
-
-        _map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
     };
 
     function parseLoop(base64Str, base64StrLength, reverseMap) {
